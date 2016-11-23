@@ -18,14 +18,20 @@ function running(){
 }
 
 function using(req, res){
-    var result;
     MongoClient.connect(url, function (err, db) {
       if (err) {
-        result = "Unable to connect to the mongoDB server. Error: " + err;
+        res.status(500).send("Unable to connect to the mongoDB server. Error: " + err)
       } else {
-        result = "Connection established to " + url;
+        var collection = db.collection("url");
+        var count = collection.count(function(err, c) {
+          if (err){
+            res.status(500).send("Can't count. Error: " + err)
+          }
+          else {
+            res.status(200).send("Connection established. The 'url' connection has "+c+" document(s).");
+          }
+        });
         db.close();
       }
     });
-    res.send(result);
 }
