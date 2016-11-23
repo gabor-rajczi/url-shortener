@@ -1,0 +1,25 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "freeCodeCamp API challenge: URL Shortener Microservice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "freeCodeCamp",
+    "node.js",
+    "express.js",
+    "API",
+    "URL",
+    "Shortener",
+    "Microservice",
+    "MongoDB"
+  ],
+  "author": "Gabor Rajczi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
