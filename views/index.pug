@@ -1,0 +1,30 @@
+- var pageURL = protocol+"://"+url+"/"
+<!DOCTYPE html>
+html
+    head
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css")
+    body
+        div(class="content")
+            div(class="col-md-8 col-md-offset-2")
+                h1(class="text-center") URL Shortener Microservice
+                blockquote(class="blockquote")
+                    p User stories:
+                    ol
+                        li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+                        li If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+                        li When I visit that shortened URL, it will redirect me to my original link.
+                h3 Example for createing short URL:
+                p: code=pageURL+"http://www.google.com"
+                p: code=pageURL+"http://google.com"
+                h3 Example output:
+                -var outputForCreatingURLOK = '{"originalURL":"http://www.google.com","'+pageURL+'1"}'
+                p: code=outputForCreatingURLOK
+                h4 In case of error:
+                p: code {"error":"Invalid URL format!"}
+                h3 Example for using of short URL:
+                p 
+                    code=pageURL+"1"
+                    span will redirect to:
+                    code http://www.google.com
+                h4 In case of error:
+                p: code {"error":"This url is not in the database."}
